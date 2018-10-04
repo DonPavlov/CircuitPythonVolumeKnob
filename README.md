@@ -20,8 +20,8 @@ Connect the Pins in the following way
 
 | KY-040 | Trinket M0 |
 |--------|------------|
-| CLK    | 3          |
-| DT     | 2          |
+| CLK    | 2          |
+| DT     | 3          |
 | SW     | 0          |
 | +      | 3V         |
 | GND    | Gnd        |
