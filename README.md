@@ -18,7 +18,13 @@ It will automatically restart with the new firmware.
 
 Connect the Pins in the following way
 
-//TODO add new stuff here with blackjack and h00kers.
+| KY-040 | Trinket M0 |
+|--------|------------|
+| CLK    | 3          |
+| DT     | 2          |
+| SW     | 0          |
+| +      | 3V         |
+| GND    | Gnd        |
 
 # Setup Source Code
 
