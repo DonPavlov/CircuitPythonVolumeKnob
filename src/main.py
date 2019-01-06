@@ -4,13 +4,16 @@ from board import *
 from adafruit_hid.consumer_control import ConsumerControl
 from adafruit_hid.consumer_control_code import ConsumerControlCode
 
-# Rotary encoder inputs with pullup on D3 & D4
-pin_clk = DigitalInOut(D3)
+# Rotary encoder inputs with pullup on D2 & D3, push on D0
+pin_clk = DigitalInOut(D2)
 pin_clk.direction = Direction.INPUT
 pin_clk.pull = Pull.UP
-pin_dt = DigitalInOut(D2)
+pin_dt = DigitalInOut(D3)
 pin_dt.direction = Direction.INPUT
 pin_dt.pull = Pull.UP
+pin_push = DigitalInOut(D0)
+pin_push.direction = Direction.INPUT
+pin_push.pull = Pull.UP
 
 # Used to do HID output for volume knob
 cc = ConsumerControl()
@@ -26,11 +29,23 @@ encoder_counter = 0
 encoder_direction = 0
 
 rotary_prev_state = [pin_clk.value, pin_dt.value]
+push_prev_state = pin_push.value
+
+first_push = True
 
 while True:
     # reset encoder and wait for the next turn
     encoder_direction = 0
- 
+    
+    push_curr_state = pin_push.value
+    if (push_curr_state == True) and (first_push == False):
+        first_push = True
+    if (push_curr_state == False) and (first_push == True):
+        first_push = False
+        print("Pin pushed")
+        cc.send(ConsumerControlCode.MUTE)
+        
+    
     # take a 'snapshot' of the rotary encoder state at this time
     rotary_curr_state = [pin_clk.value, pin_dt.value]
     if rotary_curr_state != rotary_prev_state:
@@ -71,7 +86,6 @@ while True:
             else:
                 # (shrug) something didn't work out, oh well!
                 encoder_direction = 0
- 
             # reset our edge tracking
             rising_edge = falling_edge = UNKNOWN_POSITION
  
