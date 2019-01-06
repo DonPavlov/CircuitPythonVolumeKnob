@@ -6,7 +6,8 @@ Install the latest CircuitPython and its necessary adafruit_hid library onto you
 
 The needed minimal CircuitPython 3.1.1:
 
-Circuit Python library: use latest revision: working : adafruit-circuitpython-bundle-3.x-mpy-20190106.zip
+Circuit Python library: use latest revision:
+* working : adafruit-circuitpython-bundle-3.x-mpy-20190106.zip
 
 https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/latest
 https://github.com/adafruit/circuitpython/releases/latest
