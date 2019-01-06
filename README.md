@@ -4,7 +4,8 @@ Volume Knob using a Trinket M0, a KY-040 and CircuitPython
 # Requirements
 Install the latest CircuitPython and its necessary adafruit_hid library onto your device
 
-The needed minimal CircuitPython and Circuit Python library revision is: 3.0
+The needed minimal CircuitPython 3.1.1:
+Circuit Python library: use latest revision: working : adafruit-circuitpython-bundle-3.x-mpy-20190106.zip
 
 https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/latest
 https://github.com/adafruit/circuitpython/releases/latest
